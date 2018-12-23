@@ -1,4 +1,11 @@
 ﻿##Connect-AzAccount
+param(
+    [Parameter(Mandatory=$false)]
+    [String] $Subscription,   
+    [Parameter(Mandatory=$false)]
+    [String] $ResourceGroupName
+
+)
 $DataLakeSub = Get-AzSubscription | Select-Object Name, Id | where Name -eq $Subscription
 
 $DataLakeRG = get-azresourcegroup |  Where {$_.ResourceGroupName -eq $ResourceGroupName}
